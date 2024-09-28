@@ -6,7 +6,7 @@
 
 # Security Drone (Prototype)
 
-# About
+## About
 Home-page for my attempt to make a "security drone", that will accomplish basic physical security tasks. Some tasks include facial detection,
 
 This drone will involve an `stm32` as a flight controller, and a Linux compatible SBC as a motherboard for processing. Files for both of these devices along with schematics can be found within this repository.
@@ -22,11 +22,11 @@ Hardware Needed:
 
 **Motherboard (Linux-ARM SBC) Files:** https://github.com/allenc125789/SecurityDrone-Prototype/tree/motherboard
 
-# Instructions
+## Instructions
 **Motherboard:**
 + Install Debian
 + After install, run this command as root: `git clone https://allenc125789:@github.com/allenc125789/SecurityDrone-Prototype.git -b motherboard && bash ./SecurityDrone-Prototype/setup.sh`
 
-## Resources
+### Resources
 [freeCodeCamp.org: Advanced Computer Vision with Python - Full Course](https://youtu.be/01sAkU_NvOY?si=-z81XHAHfTIwfk2N)
 
