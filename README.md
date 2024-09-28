@@ -32,3 +32,5 @@ This drone will involve an `stm32` as a flight controller, and a Linux compatibl
 [freeCodeCamp.org: Advanced Computer Vision with Python - Full Course](https://youtu.be/01sAkU_NvOY?si=-z81XHAHfTIwfk2N)
 
 [DroneBot Workshop: Getting Started with LIDAR](https://www.youtube.com/watch?v=VhbFbxyOI1k)
+
+[Rob Mulla: Open Source Face Analysis with Python](https://www.youtube.com/watch?v=n84hBgtzvxo&t=201s)
