@@ -57,20 +57,7 @@ while True:
 #    if len(lmList) !=0:
 #        print(lmList)
 
-    for i in bboxs:
-        bbox = i[1]
-        faceVal = i[2]
-        if faceVal is None:
-            faceVal = 0
-        elif (bboxCenterTracking(bbox) and faceVal[0] > 0.65):
-            print("Ready to Save")
-#            centerPOV = detectorPM.findPose(centerPOV)
-#            lmList = detectorPM.findPosition(centerPOV)
-#            if len(lmList) !=0:
-#                print(lmList)
-        else:
-            print(faceCorrectionVal)
-#            print("Face NOT detected")
+    saveFaceToFS(bboxs)
 
     cTime = time.time()
     fps = 1 / (cTime - pTime)
