@@ -28,7 +28,7 @@ sudo usermod -aG sudo drone
 
 #: Python3 Settings
 
-cp -r -p -f "./SecurityDrone-Prototype/*" "/home/drone/"
+cp -r -p -f -a "./SecurityDrone-Prototype/." "/home/drone/"
 chown -R drone:drone "/home/drone"
 
 sudo -H -u drone bash -c 'cd "/home/drone" && python3 -m venv ".venv"'
