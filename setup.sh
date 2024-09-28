@@ -28,8 +28,8 @@ sudo usermod -aG sudo drone
 
 #: Python3 Settings
 
-cp -r -p -f "./SecurityDrone-Prototype" "/home/drone/"
+cp -r -p -f "./SecurityDrone-Prototype/*" "/home/drone/"
 chown -R drone:drone "/home/drone"
 
 sudo -H -u drone bash -c 'cd "/home/drone" && python3 -m venv ".venv"'
-sudo -H -u drone bash -c '/home/drone/.venv/bin/pip3 install -r "SecurityDrone-Prototype/requirements.txt"'
+sudo -H -u drone bash -c '/home/drone/.venv/bin/pip3 install -r "requirements.txt"'
