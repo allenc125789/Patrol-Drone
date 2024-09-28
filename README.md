@@ -18,7 +18,6 @@ This drone will involve an `stm32` as a flight controller, and a Linux compatibl
 + GY-521 MPU-6050 3 Axis Accelerometer/Gyroscope
 + HappyModel EX1102 13500Kv (1.5mm Shaft) Whoop/Micro Motor [x4]
 + 40mm 1.5mm Bi-Blade [x4]
-+ Plastic Skull
 
 **Motherboard (Linux-ARM SBC) Files:** https://github.com/allenc125789/SecurityDrone-Prototype/tree/motherboard
 
