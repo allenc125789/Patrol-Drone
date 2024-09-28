@@ -11,7 +11,7 @@ vUUID=$(/usr/sbin/blkid -s UUID -o value "$vFILESYSTEM")
 
 
 #: Dependancies.
-aDEPENDS=("sudo" "libmariadb3" "mariadb-server" "build-essential" "libssl-dev" "libffi-dev" "python3-dev" "libmariadb-dev" "python3.11-venv" "python3-opencv" "python3-numpy" "imagemagick")
+aDEPENDS=("sudo" "libmariadb3" "build-essential" "libssl-dev" "libffi-dev" "python3-dev" "libmariadb-dev" "python3.11-venv" "python3-opencv" "python3-numpy" "imagemagick")
     #: Dependancy Check
 apt-get install ${aDEPENDS[*]}
 if [[ $? > 0 ]]; then
@@ -29,8 +29,10 @@ sudo usermod -aG sudo drone
 #: SQL.
     #: Create DB tables.
 mariadb -e "CREATE DATABASE droneDB;"
+mariadb -e "USE turtlenas; CREATE TABLE paths (fullpath NVARCHAR(255) PRIMARY KEY, parent NVARCHAR(255), name NVARCHAR(255),date VARCHAR(224), size VARCHAR(255), mtime CHAR(244) );"
     #: Create DB Users.
 mariadb -e "CREATE USER 'drone'@'localhost' IDENTIFIED BY ''"
+mariadb -e "GRANT ALL PRIVILEGES ON droneDB.paths TO 'drone'@'localhost' WITH GRANT OPTION"
 
 
 #Copy Files
