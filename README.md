@@ -22,7 +22,7 @@ Hardware Needed:
 + 40mm 1.5mm Bi-Blade [x4]
 + Plastic Skull
 
-**Motherboard (Linux-ARM SBC) Files:** https://github.com/allenc125789/ServoSkull-Drone/tree/motherboard
+**Motherboard (Linux-ARM SBC) Files:** https://github.com/allenc125789/SecurityDrone-Prototype/tree/motherboard
 
 # Instructions
 **Motherboard:**
