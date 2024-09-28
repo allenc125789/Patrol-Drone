@@ -15,7 +15,7 @@ detectorPM = pm.poseDetector()
 #    while True:
 
 
-def saveFaceToFS(bboxs):
+def faceAutoCenter(bboxs):
     for i in bboxs:
         bbox = i[1]
         faceVal = i[2]
@@ -57,7 +57,7 @@ while True:
 #    if len(lmList) !=0:
 #        print(lmList)
 
-    saveFaceToFS(bboxs)
+    faceAutoCenter(bboxs)
 
     cTime = time.time()
     fps = 1 / (cTime - pTime)
