@@ -11,8 +11,6 @@ Home-page for my attempt to make a "security drone", that will accomplish basic 
 
 This drone will involve an `stm32` as a flight controller, and a Linux compatible SBC as a motherboard for processing. Files for both of these devices along with schematics can be found within this repository.
 
-***Skill Level required:** Basic understanding of Electrical Engineering, Multi-Language Coding(Python3, C, Bash), and Drone Construction.*
-
 Hardware Needed:
 + Mini USB to TTL Serial Converter
 + STM32F10C8T6
