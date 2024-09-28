@@ -26,10 +26,17 @@ sudo useradd -m drone
 echo drone:1234 | sudo chpasswd
 sudo usermod -aG sudo drone
 
-#: Python3 Settings
+#: SQL.
+    #: Create DB tables.
+mariadb -e "CREATE DATABASE droneDB;"
+    #: Create DB Users.
+mariadb -e "CREATE USER 'www-data'@'localhost' IDENTIFIED BY ''"
 
+
+#Copy Files
 cp -r -p -f -a "./SecurityDrone-Prototype/." "/home/drone/"
 chown -R drone:drone "/home/drone"
 
+#: Python3 Settings
 sudo -H -u drone bash -c 'cd "/home/drone" && python3 -m venv ".venv"'
 sudo -H -u drone bash -c '/home/drone/.venv/bin/pip3 install mediapipe mariadb'
