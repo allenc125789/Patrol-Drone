@@ -27,5 +27,8 @@ This drone will involve an `stm32` as a flight controller, and a Linux compatibl
 + After install, run this command as root: `git clone https://allenc125789:@github.com/allenc125789/SecurityDrone-Prototype.git -b motherboard && bash ./SecurityDrone-Prototype/setup.sh`
 
 ### Resources
+[Joop Brokking: STM32 Drone Playlist](https://www.youtube.com/watch?v=MLEQk73zJoU&list=PL0qFkFQLP5BCzOatRLFr15el1dSjvn--E)
+
 [freeCodeCamp.org: Advanced Computer Vision with Python - Full Course](https://youtu.be/01sAkU_NvOY?si=-z81XHAHfTIwfk2N)
 
+[DroneBot Workshop: Getting Started with LIDAR](https://www.youtube.com/watch?v=VhbFbxyOI1k)
