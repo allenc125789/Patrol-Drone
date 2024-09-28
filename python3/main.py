@@ -21,14 +21,15 @@ def faceAutoCenter(bboxs):
         faceVal = i[2]
         if faceVal is None:
             faceVal = 0
-        elif (bboxCenterTracking(bbox) and faceVal[0] > 0.65):
+        elif (bboxCenterTracking(bbox[0]) and faceVal[0] > 0.65):
             print("Ready to Save")
 #            centerPOV = detectorPM.findPose(centerPOV)
 #            lmList = detectorPM.findPosition(centerPOV)
 #            if len(lmList) !=0:
 #                print(lmList)
         else:
-            print(faceCorrectionVal)
+            print(faceCorrectionVal[0])
+            faceVal[0]
 #            print("Face NOT detected")
 
 
