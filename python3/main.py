@@ -1,6 +1,6 @@
 import cv2
-import camCapture-face-modules as fm
-import camCapture-pose-modules as pm
+import camCaptureFaceModules as fm
+import camCapturePoseModules as pm
 import time
 
 cap = cv2.VideoCapture(2)
