@@ -11,7 +11,7 @@ vUUID=$(/usr/sbin/blkid -s UUID -o value "$vFILESYSTEM")
 
 
 #: Dependancies.
-aDEPENDS=("sudo" "default-mysql-server" "python3.11-venv" "python3-opencv" "python3-numpy" "imagemagick")
+aDEPENDS=("sudo" "libmariadb3" "libmariadb-dev" "python3.11-venv" "python3-opencv" "python3-numpy" "imagemagick")
     #: Dependancy Check
 apt-get install ${aDEPENDS[*]}
 if [[ $? > 0 ]]; then
