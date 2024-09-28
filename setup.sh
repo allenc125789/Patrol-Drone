@@ -30,7 +30,7 @@ sudo usermod -aG sudo drone
     #: Create DB tables.
 mariadb -e "CREATE DATABASE droneDB;"
     #: Create DB Users.
-mariadb -e "CREATE USER 'www-data'@'localhost' IDENTIFIED BY ''"
+mariadb -e "CREATE USER 'drone'@'localhost' IDENTIFIED BY ''"
 
 
 #Copy Files
