@@ -35,10 +35,10 @@ def faceAutoCenter(bboxs):
 
 def bboxCenterTracking(bbox):
     try:
-        faceLeft = bbox[0] - 150
-        faceUp = bbox[1] - 25
-        faceRight = bbox[2] + bbox[0] - 500
-        faceDown = bbox[3] + bbox[1] - 300
+        faceLeft = bbox[0] - 160
+        faceUp = bbox[1] - 80
+        faceRight = bbox[2] + bbox[0] - 480
+        faceDown = bbox[3] + bbox[1] - 400
 
         if faceLeft < 0 or faceUp < 0 or -faceRight < 0 or -faceDown < 0:
             faceCorrectionVal.append([faceLeft, faceUp, -faceRight, -faceDown])
@@ -52,7 +52,7 @@ def bboxCenterTracking(bbox):
 while True:
     cap.set(cv2.CAP_PROP_FPS,15)
     success, img = cap.read()
-    centerPOV = img[25: 300,150: 500]
+    centerPOV = img[80: 400,160: 480]
     img, bboxs = detectorFM.findFaces(img)
     faceCorrectionVal = []
 #    if len(lmList) !=0:
