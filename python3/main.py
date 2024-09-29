@@ -23,14 +23,11 @@ def faceAutoCenter(bboxs):
             faceVal = 0
         elif (bboxCenterTracking(bbox) and faceVal[0] > 0.65):
             print("Ready to Save")
-#            centerPOV = detectorPM.findPose(centerPOV)
-#            lmList = detectorPM.findPosition(centerPOV)
-#            if len(lmList) !=0:
-#                print(lmList)
+            return faceVal, faceCorrectionVal, True
+
         else:
             print(faceCorrectionVal, faceVal)
-#            return faceVal, faceCorrectionVal
-#            print("Face NOT detected")
+            return faceVal, faceCorrectionVal, False
 
 
 def bboxCenterTracking(bbox):
