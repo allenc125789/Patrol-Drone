@@ -11,8 +11,13 @@ detectorPM = pm.poseDetector()
 
 
 
-#def initBoot():
-#    while True:
+def initBoot():
+    try:
+        # First boot. Need admin face.
+        faceVals = faceAutoCenter(bboxs)
+        adminFace = faceVals[0]
+    except:
+        print("rip")
 
 
 def faceAutoCenter(bboxs):
@@ -49,8 +54,7 @@ while True:
 #    if len(lmList) !=0:
 #        print(lmList)
 
-    test = faceAutoCenter(bboxs)
-    print(test)
+    initBoot()
 
     cTime = time.time()
     fps = 1 / (cTime - pTime)
@@ -60,4 +64,9 @@ while True:
     cv2.imshow("Image", img)
     cv2.imshow("Center", centerPOV)
 
-    cv2.waitKey(1)
+    key = cv2.waitKey(30)
+    #Press ESC key to exit.
+    if key == 27:
+        cap.release()
+        cv2.destroyAllWindows()
+        break
