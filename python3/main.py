@@ -13,13 +13,23 @@ detectorPM = pm.poseDetector()
 
 def initBoot():
     try:
-        # First boot. Need admin face.
+        #First boot. Determines admin's face by selecting the most prevelant face.
         faceVals = faceAutoCenter(bboxs)
-        adminFace = faceVals[0]
+        adminCenterVals = faceVals[0][2][0]
+        faceDetectVal = faceVals[0][1][0]
+        print(faceDetectVal)
+        #If the 'admin's face is in the CenterPOV and has a value of <0.70%, it'll initiate...something...
+        if (all(i > 0 for i in adminCenterVals) and faceDetectVal > 0.70):
+            print("hi")
+        else:
+            print("no")
     except:
         print("rip")
 
 
+
+
+#Determines pixel difference between faces and the centerPOV.
 def faceAutoCenter(bboxs):
     try:
         output = []
@@ -33,6 +43,8 @@ def faceAutoCenter(bboxs):
     except:
         return "null"
 
+#Converts location of bbox into difference between centerPOV.
+# `faceCorrectionVal` values are >= 0, if inside centerPOV.
 def bboxCenterTracking(bbox):
     try:
         faceCorrectionVal = []
