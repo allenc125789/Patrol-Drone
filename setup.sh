@@ -9,7 +9,6 @@ vPWD=$(dirname $0)
 vFILESYSTEM=$(df -P . | sed -n '$s/[[:blank:]].*//p')
 vUUID=$(/usr/sbin/blkid -s UUID -o value "$vFILESYSTEM")
 
-
 #: Dependancies.
 aDEPENDS=("sudo" "libmariadb3" "mariadb-server" "build-essential" "libssl-dev" "libffi-dev" "python3-dev" "libmariadb-dev" "python3.11-venv" "python3-opencv" "python3-matplotlib" "python3-numpy")
     #: Dependancy Check
@@ -25,6 +24,10 @@ fi
 sudo useradd -m drone
 echo drone:1234 | sudo chpasswd
 sudo usermod -aG sudo drone
+
+#: Create Files and Folders
+mkdir -v -p "/home/drone/Pictures/Faces/admin"
+mkdir -v "/home/drone/Pictures/Faces/uncatologued"
 
 #: SQL.
     #: Create DB tables.
