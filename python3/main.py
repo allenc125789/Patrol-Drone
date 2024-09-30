@@ -16,34 +16,29 @@ detectorPM = pm.poseDetector()
 
 
 def faceAutoCenter(bboxs):
-    for i in bboxs:
-        bbox = i[1]
-        faceVal = i[2]
-        if faceVal is None:
-            faceVal = 0
-        elif (bboxCenterTracking(bbox) and faceVal[0] > 0.65):
-            print("Ready to Save")
-            return faceVal, faceCorrectionVal, True
-
-        else:
-            print(faceCorrectionVal, faceVal)
-            return faceVal, faceCorrectionVal, False
-
+    try:
+        output = []
+        for i in bboxs:
+            faceID = i[0]
+            bbox = i[1]
+            faceVal = i[2]
+            faceCorrectionVal = bboxCenterTracking(bbox) # and faceVal[0] > 0.65):
+            output.append([faceID, faceVal, faceCorrectionVal])
+        return output
+    except:
+        return "null"
 
 def bboxCenterTracking(bbox):
     try:
+        faceCorrectionVal = []
         faceLeft = bbox[0] - 160
         faceUp = bbox[1] - 80
         faceRight = bbox[2] + bbox[0] - 480
         faceDown = bbox[3] + bbox[1] - 400
-
-        if faceLeft < 0 or faceUp < 0 or -faceRight < 0 or -faceDown < 0:
-            faceCorrectionVal.append([faceLeft, faceUp, -faceRight, -faceDown])
-            return False
-        else:
-            return True
+        faceCorrectionVal.append([faceLeft, faceUp, -faceRight, -faceDown])
+        return faceCorrectionVal
     except:
-        print("No matching bbox value in bboxParse()")
+        return "null"
 
 #Main loop
 while True:
@@ -51,11 +46,11 @@ while True:
     success, img = cap.read()
     centerPOV = img[80: 400,160: 480]
     img, bboxs = detectorFM.findFaces(img)
-    faceCorrectionVal = []
 #    if len(lmList) !=0:
 #        print(lmList)
 
-    faceAutoCenter(bboxs)
+    test = faceAutoCenter(bboxs)
+    print(test)
 
     cTime = time.time()
     fps = 1 / (cTime - pTime)
