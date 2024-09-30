@@ -10,10 +10,10 @@ detectorPM = pm.poseDetector()
 
 
 def initBoot():
-#    try:
-        count = 0
-        WAIT = False
-        while True:
+    count = 0
+    WAIT = False
+    while True:
+        try:
             #initCam
             cap.set(cv2.CAP_PROP_FPS,15)
             success, img = cap.read()
@@ -30,19 +30,20 @@ def initBoot():
             bboxW = bbox[0][3][2]
             bboxH = bbox[0][3][3]
             #If the 'admin's face is in the CenterPOV and has a value of <0.70%, it'll initiate...something...
-            if (all(i > 0 for i in faceCorrectionVal) and faceDetectionVal > 0.70):
+            if (all(i > 0 for i in faceCorrectionVal) and faceDetectionVal > 0.70) and count < 30:
                 roi = img[bboxY:bboxY+bboxH, bboxX:bboxX+bboxW]
                 adminPhoto = str(adminFolder) + str(count) + ".jpg"
                 cv2.imwrite(adminPhoto, roi)
                 count += 1
+                print(count)
             elif WAIT == True:
                 continue
-            elif count == 30:
+            elif int(count) == 30:
                 break
             else:
-                print("no")
-#    except:
-#        print("rip")
+                print(faceCorrectionVal, faceDetectionVal)
+        except:
+            print("rip")
 
 
 
