@@ -12,19 +12,24 @@ detectorPM = pm.poseDetector()
 
 
 def initBoot():
-    try:
+#    try:
         #First boot. Determines admin's face by selecting the most prevelant face.
-        faceVals = faceAutoCenter(bboxs)
-        adminCenterVals = faceVals[0][2][0]
-        faceDetectVal = faceVals[0][1][0]
-        print(faceDetectVal)
+        bbox = faceAutoCenter(bboxs)
+        faceCorrectionVal = bbox[0][2][0]
+        faceDetectionVal = bbox[0][1][0]
+        bboxX = bbox[0][3][0]
+        bboxY = bbox[0][3][1]
+        bboxW = bbox[0][3][2]
+        bboxH = bbox[0][3][3]
         #If the 'admin's face is in the CenterPOV and has a value of <0.70%, it'll initiate...something...
-        if (all(i > 0 for i in adminCenterVals) and faceDetectVal > 0.70):
-            print("hi")
+        if (all(i > 0 for i in faceCorrectionVal) and faceDetectionVal > 0.70):
+            roi = img[bboxY:bboxY+bboxH, bboxX:bboxX+bboxW]
+            cv2.imwrite("/home/drone/Pictures/test.jpg", roi)
+            time.sleep(5)
         else:
             print("no")
-    except:
-        print("rip")
+#    except:
+#        print("rip")
 
 
 
@@ -35,10 +40,10 @@ def faceAutoCenter(bboxs):
         output = []
         for i in bboxs:
             faceID = i[0]
-            bbox = i[1]
-            faceVal = i[2]
-            faceCorrectionVal = bboxCenterTracking(bbox) # and faceVal[0] > 0.65):
-            output.append([faceID, faceVal, faceCorrectionVal])
+            bboxSize = i[1]
+            faceDetectionVal = i[2]
+            faceCorrectionVal = bboxCenterTracking(bboxSize) # and faceVal[0] > 0.65):
+            output.append([faceID, faceDetectionVal, faceCorrectionVal, bboxSize])
         return output
     except:
         return "null"
@@ -57,12 +62,14 @@ def bboxCenterTracking(bbox):
     except:
         return "null"
 
+
+
 #Main loop
 while True:
     cap.set(cv2.CAP_PROP_FPS,15)
     success, img = cap.read()
     centerPOV = img[80: 400,160: 480]
-    img, bboxs = detectorFM.findFaces(img)
+    imgFace, bboxs = detectorFM.findFaces(img)
 #    if len(lmList) !=0:
 #        print(lmList)
 
