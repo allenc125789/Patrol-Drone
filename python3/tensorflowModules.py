@@ -12,4 +12,12 @@ def getDirs(dir_path):
 
 faceDATADIR = "/home/drone/Pictures/Faces"
 faceCATEGORIES = getDirs(faceDATADIR)
-print(faceCATEGORIES)
+
+for category in faceCATEGORIES:
+    path = os.path.join(faceDATADIR, category)
+    for img in os.listdir(path):
+        img_array = cv2.imread(os.path.join(path,img), cv2.IMREAD_GREYSCALE)
+        plt.imshow(img_array, cmap="gray")
+        plt.show()
+        break
+    break
