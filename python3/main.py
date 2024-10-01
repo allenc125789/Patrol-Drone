@@ -30,32 +30,31 @@ def initBoot():
         print(faceCorrectionVal, faceDetectionVal)
         #If the 'admin's face is in the CenterPOV and has a value of <0.70%, it'll print.
         if (all(i > 0 for i in faceCorrectionVal) and faceDetectionVal > 0.70):
-            print("hiiiiii")
+            #<= 1/3 of totalPics
+            if (count <= totalPics / 3 and facePose == "faceForward"):
+                print("Look Forward")
+                print(facePose)
+                saveAdminFace(img, bbox, count)
+                count += 1
+            #<= 2/3 of totalPics
+            elif (count >= totalPics / 3 and count < (totalPics / 3) * 2 and facePose == "faceLeft"):
+                print("Look Left")
+                print(facePose)
+                saveAdminFace(img, bbox, count)
+                count += 1
+                print(count)
+            #<= 3/3 of totalPics
+            elif (count >= (totalPics / 3) * 2 and facePose == "faceRight"):
+                print("Look Right")
+                print(facePose)
+                saveAdminFace(img, bbox, count)
+                count += 1
+                print(count)
+            #If all pictures taken.
+            if (count == totalPics):
+                break
         else:
             continue
-        #<= 1/3 of totalPics
-        if (count <= totalPics / 3 and facePose == "faceForward"):
-            print("Look Forward")
-            print(facePose)
-            saveAdminFace(img, bbox, count)
-            count += 1
-        #<= 2/3 of totalPics
-        elif (count >= totalPics / 3 and count < (totalPics / 3) * 2 and facePose == "faceLeft"):
-            print("Look Left")
-            print(facePose)
-            saveAdminFace(img, bbox, count)
-            count += 1
-            print(count)
-        #<= 3/3 of totalPics
-        elif (count >= (totalPics / 3) * 2 and facePose == "faceRight"):
-            print("Look Right")
-            print(facePose)
-            saveAdminFace(img, bbox, count)
-            count += 1
-            print(count)
-        #If all pictures taken.
-        if (count == totalPics):
-            break
 
 def saveAdminFace(img, bbox, count):
             adminFolder = "/home/drone/Pictures/Faces/admin/"
