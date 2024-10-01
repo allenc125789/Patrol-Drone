@@ -29,21 +29,26 @@ def initBoot():
             bboxY = bbox[0][3][1]
             bboxW = bbox[0][3][2]
             bboxH = bbox[0][3][3]
+            totalPics = 120
             #If the 'admin's face is in the CenterPOV and has a value of <0.70%, it'll initiate...something...
-            if (all(i > 0 for i in faceCorrectionVal) and faceDetectionVal > 0.70) and count < 30:
+            if (all(i > 0 for i in faceCorrectionVal) and faceDetectionVal > 0.70):
                 roi = img[bboxY:bboxY+bboxH, bboxX:bboxX+bboxW]
                 adminPhoto = str(adminFolder) + str(count) + ".jpg"
                 cv2.imwrite(adminPhoto, roi)
                 count += 1
                 print(count)
-            elif WAIT == True:
-                continue
-            elif int(count) == 30:
-                break
             else:
                 print(faceCorrectionVal, faceDetectionVal)
+            if (count == 0):
+                print("Look Forward")
+            if (count == totalPics / 3):
+                print("Look Left")
+            if (count == (totalPics / 3) * 2):
+                print("Look Right")
+            if (count == totalPics):
+                break
         except:
-            print("rip")
+            print("No faces detected.")
 
 
 
