@@ -8,6 +8,31 @@ pTime = 0
 detectorFM = fm.faceDetector()
 detectorPM = pm.poseDetector()
 
+def saveAdminFace(img, bbox, count):
+            adminFolder = "/home/drone/Pictures/Faces/admin/"
+            bboxX = bbox[0][3][0]
+            bboxY = bbox[0][3][1]
+            bboxW = bbox[0][3][2]
+            bboxH = bbox[0][3][3]
+            roi = img[bboxY:bboxY+bboxH, bboxX:bboxX+bboxW]
+            adminPhoto = str(adminFolder) + str(count) + ".jpg"
+            cv2.imwrite(adminPhoto, roi)
+
+
+#Converts location of bbox into difference between centerPOV.
+# `faceCorrectionVal` values are >= 0, if inside centerPOV.
+def bboxCenterTracking(bbox):
+    try:
+        faceCorrectionVal = []
+        faceLeft = bbox[0] - 160
+        faceUp = bbox[1] - 80
+        faceRight = bbox[2] + bbox[0] - 480
+        faceDown = bbox[3] + bbox[1] - 400
+        faceCorrectionVal.append([faceLeft, faceUp, -faceRight, -faceDown])
+        return faceCorrectionVal
+    except:
+        return "null"
+
 
 while True:
     #initCam
@@ -48,56 +73,6 @@ while True:
         print("rip")
     if (count == totalPics):
         break
-
-def saveAdminFace(img, bbox, count):
-            adminFolder = "/home/drone/Pictures/Faces/admin/"
-            bboxX = bbox[0][3][0]
-            bboxY = bbox[0][3][1]
-            bboxW = bbox[0][3][2]
-            bboxH = bbox[0][3][3]
-            roi = img[bboxY:bboxY+bboxH, bboxX:bboxX+bboxW]
-            adminPhoto = str(adminFolder) + str(count) + ".jpg"
-            cv2.imwrite(adminPhoto, roi)
-
-
-#Converts location of bbox into difference between centerPOV.
-# `faceCorrectionVal` values are >= 0, if inside centerPOV.
-def bboxCenterTracking(bbox):
-    try:
-        faceCorrectionVal = []
-        faceLeft = bbox[0] - 160
-        faceUp = bbox[1] - 80
-        faceRight = bbox[2] + bbox[0] - 480
-        faceDown = bbox[3] + bbox[1] - 400
-        faceCorrectionVal.append([faceLeft, faceUp, -faceRight, -faceDown])
-        return faceCorrectionVal
-    except:
-        return "null"
-
-
-initBoot()
-
-#Main loop
-while True:
-    #initCam
-    cap.set(cv2.CAP_PROP_FPS,15)
-    success, img = cap.read()
-    centerPOV = img[80: 400,160: 480]
-    imgFace, bboxs = detectorFM.findFaces(img)
-
-
-    #displayCam
-    cTime = time.time()
-    fps = 1 / (cTime - pTime)
-    pTime = cTime
-
-    cv2.putText(img, str(int(fps)), (70, 50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0 , 0), 3)
-    cv2.imshow("Image", img)
-    cv2.imshow("Center", centerPOV)
-
-
-
-
     #End of loop
     key = cv2.waitKey(30)
     #Press ESC key to exit.
