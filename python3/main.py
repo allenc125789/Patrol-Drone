@@ -13,75 +13,55 @@ def initBoot():
     count = 0
     WAIT = False
     while True:
-        try:
-            #initCam
-            cap.set(cv2.CAP_PROP_FPS,15)
-            success, img = cap.read()
-            centerPOV = img[80: 400,160: 480]
-            imgFace, bboxs = detectorFM.findFaces(img)
+        #initCam
+        cap.set(cv2.CAP_PROP_FPS,15)
+        success, img = cap.read()
+        centerPOV = img[80: 400,160: 480]
+        imgFace, bboxs = detectorFM.findFaces(img)
 
-            #First boot. Determines admin's face by selecting the most prevelant face.
+        #First boot. Determines admin's face by selecting the most prevelant face.
+        facePose = detectorPM.confirmFacePose(centerPOV)
+        bbox = faceAutoCenter(bboxs)
+        faceCorrectionVal = bbox[0][2][0]
+        faceDetectionVal = bbox[0][1][0]
+        #Keep a multiple of 3 to split evenly between face poses.
+        totalPics = 120
+
+        #If the 'admin's face is in the CenterPOV and has a value of <0.70%, it'll initiate...something...
+        print(count)
+        if (count <= totalPics / 3 and facePose == "faceForward"):
+            print("Look Forward")
+            print(facePose)
+            saveAdminFace(img, bbox, count)
+            count += 1
+        elif (all(i < 0 for i in faceCorrectionVal) and faceDetectionVal < 0.70):
+            continue
+        elif (count >= totalPics / 3 and count < (totalPics / 3) * 2 and facePose == "faceLeft"):
+            print("Look Left")
+            print(facePose)
+            saveAdminFace(img, bbox, count)
+            count += 1
+        elif (count >= (totalPics / 3) * 2 and facePose == "faceRight"):
+            print("Look Right")
+            print(facePose)
+            saveAdminFace(img, bbox, count)
+            count += 1
+        elif facePose == False:
+            print("rip")
+        if (count == totalPics):
+            break
+
+def saveAdminFace(img, bbox, count):
             adminFolder = "/home/drone/Pictures/Faces/admin/"
-            bbox = faceAutoCenter(bboxs)
-            faceCorrectionVal = bbox[0][2][0]
-            faceDetectionVal = bbox[0][1][0]
             bboxX = bbox[0][3][0]
             bboxY = bbox[0][3][1]
             bboxW = bbox[0][3][2]
             bboxH = bbox[0][3][3]
-            totalPics = 120
+            roi = img[bboxY:bboxY+bboxH, bboxX:bboxX+bboxW]
+            adminPhoto = str(adminFolder) + str(count) + ".jpg"
+            cv2.imwrite(adminPhoto, roi)
 
 
-
-            #If the 'admin's face is in the CenterPOV and has a value of <0.70%, it'll initiate...something...
-            if (all(i > 0 for i in faceCorrectionVal) and faceDetectionVal > 0.70):
-                roi = img[bboxY:bboxY+bboxH, bboxX:bboxX+bboxW]
-                adminPhoto = str(adminFolder) + str(count) + ".jpg"
-                cv2.imwrite(adminPhoto, roi)
-                count += 1
-                print(count)
-            else:
-                print(faceCorrectionVal, faceDetectionVal)
-#            if (count == 0):
-#                print("Look Forward")
-#            if (count == totalPics / 3):
-#                print("Look Left")
-#            if (count == (totalPics / 3) * 2):
-#                print("Look Right")
-            if (count == totalPics):
-                break
-        except:
-            print("No faces detected.")
-
-def confirmFacePose(centerPOV):
-    try:
-        centerPOV = detectorPM.findPose(centerPOV)
-        lmList = detectorPM.findPosition(centerPOV)
-        if len(lmList) !=0:
-            rightEar = lmList[8]
-            rightEyeO = lmList[6]
-            rightEye = lmList[5]
-            rightEyeI = lmList[4]
-            leftEar = lmList[7]
-            leftEyeO = lmList[3]
-            leftEye = lmList[2]
-            leftEyeI = lmList[1]
-        #Detect looking forward.
-        if rightEar[1] < rightEyeO[1] and leftEar[1] > leftEyeO[1]:
-            print(rightEar[1] / rightEyeO[1])
-            return "faceForward"
-        #Detect looking right.
-        if rightEar[1] > rightEye[1]:
-            print("Looking right!")
-            return "faceRight"
-        #Detect looking left.
-        if leftEar[1] < leftEye[1]:
-            print("Looking left!")
-            return "faceLeft"
-        else:
-            return False
-    except:
-        print("Can't estmate pose")
 
 #Determines pixel difference between faces and the centerPOV.
 def faceAutoCenter(bboxs):
@@ -112,7 +92,7 @@ def bboxCenterTracking(bbox):
         return "null"
 
 
-#initBoot()
+initBoot()
 
 #Main loop
 while True:
@@ -122,7 +102,6 @@ while True:
     centerPOV = img[80: 400,160: 480]
     imgFace, bboxs = detectorFM.findFaces(img)
 
-    confirmFacePose(centerPOV)
 
     #displayCam
     cTime = time.time()
