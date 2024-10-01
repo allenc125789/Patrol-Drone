@@ -63,33 +63,7 @@ def saveAdminFace(img, bbox, count):
 
 
 
-#Determines pixel difference between faces and the centerPOV.
-def faceAutoCenter(bboxs):
-    try:
-        output = []
-        for i in bboxs:
-            faceID = i[0]
-            bboxSize = i[1]
-            faceDetectionVal = i[2]
-            faceCorrectionVal = bboxCenterTracking(bboxSize) # and faceVal[0] > 0.65):
-            output.append([faceID, faceDetectionVal, faceCorrectionVal, bboxSize])
-        return output
-    except:
-        return "null"
 
-#Converts location of bbox into difference between centerPOV.
-# `faceCorrectionVal` values are >= 0, if inside centerPOV.
-def bboxCenterTracking(bbox):
-    try:
-        faceCorrectionVal = []
-        faceLeft = bbox[0] - 160
-        faceUp = bbox[1] - 80
-        faceRight = bbox[2] + bbox[0] - 480
-        faceDown = bbox[3] + bbox[1] - 400
-        faceCorrectionVal.append([faceLeft, faceUp, -faceRight, -faceDown])
-        return faceCorrectionVal
-    except:
-        return "null"
 
 
 initBoot()
