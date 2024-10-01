@@ -27,8 +27,19 @@ class faceDetector():
                 cv2.putText(img, f'{int(id)} [{int(detection.score[0] * 100)}%]', (bbox[0], bbox[1] - 20), cv2.FONT_HERSHEY_PLAIN, 1, (255,0,255), 2)
         return img, bboxs
 
-#    def findFacePosition(self, img, draw= True):
-
+#Determines pixel difference between faces and the centerPOV.
+def faceAutoCenter(self, bboxs):
+    try:
+        output = []
+        for i in bboxs:
+            faceID = i[0]
+            bboxSize = i[1]
+            faceDetectionVal = i[2]
+            faceCorrectionVal = bboxCenterTracking(bboxSize) # and faceVal[0] > 0.65):
+            output.append([faceID, faceDetectionVal, faceCorrectionVal, bboxSize])
+        return output
+    except:
+        return "null"
 
 
 
