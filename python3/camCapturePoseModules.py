@@ -37,6 +37,34 @@ class poseDetector():
                     cv2.circle(img, (cx, cy), 5, (255, 0, 0), cv2.FILLED)
         return lmList
 
+    def confirmFacePose(self, img):
+        try:
+            centerPOV = self.findPose(img)
+            lmList = self.findPosition(img)
+            if len(lmList) !=0:
+                rightEar = lmList[8]
+                rightEyeO = lmList[6]
+                rightEye = lmList[5]
+                rightEyeI = lmList[4]
+                leftEar = lmList[7]
+                leftEyeO = lmList[3]
+                leftEye = lmList[2]
+                leftEyeI = lmList[1]
+            #Detect looking forward.
+            if rightEar[1] < rightEyeO[1] and leftEar[1] > leftEyeO[1]:
+                return "faceForward"
+            #Detect looking right.
+            if rightEar[1] > rightEye[1]:
+                return "faceRight"
+            #Detect looking left.
+            if leftEar[1] < leftEye[1]:
+                return "faceLeft"
+            else:
+                return False
+        except:
+            return False
+
+
 
 def main():
     cap = cv2.VideoCapture(0)
