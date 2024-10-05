@@ -26,11 +26,15 @@ This drone will involve an `stm32` as a flight controller, and a Linux compatibl
 + Install Debian
 + After install, run this command as root: `git clone https://allenc125789:@github.com/allenc125789/SecurityDrone-Prototype.git -b motherboard && bash ./SecurityDrone-Prototype/setup.sh`
 
-### Resources
-[Joop Brokking: STM32 Drone Playlist](https://www.youtube.com/watch?v=MLEQk73zJoU&list=PL0qFkFQLP5BCzOatRLFr15el1dSjvn--E)
+## Resources
+### Drone Construction
++ [Joop Brokking: STM32 Drone Playlist](https://www.youtube.com/watch?v=MLEQk73zJoU&list=PL0qFkFQLP5BCzOatRLFr15el1dSjvn--E)
++ [DroneBot Workshop: Getting Started with LIDAR](https://www.youtube.com/watch?v=VhbFbxyOI1k)
 
-[freeCodeCamp.org: Advanced Computer Vision with Python - Full Course](https://youtu.be/01sAkU_NvOY?si=-z81XHAHfTIwfk2N)
+### Computer Vision
++ [freeCodeCamp.org: Advanced Computer Vision with Python - Full Course](https://youtu.be/01sAkU_NvOY?si=-z81XHAHfTIwfk2N)
++ [Rob Mulla: Open Source Face Analysis with Python](https://www.youtube.com/watch?v=n84hBgtzvxo&t=201s)
 
-[DroneBot Workshop: Getting Started with LIDAR](https://www.youtube.com/watch?v=VhbFbxyOI1k)
-
-[Rob Mulla: Open Source Face Analysis with Python](https://www.youtube.com/watch?v=n84hBgtzvxo&t=201s)
+### Tensorflow/Deep-Learning
++ [Dan Fleisch: What's a Tensor?](https://www.youtube.com/watch?v=f5liqUk0ZTw)
++ [Daniel Bourke: Learn TensorFlow and Deep Learning fundamentals with Python (code-first introduction) Part 1/2](https://youtu.be/tpCFfeUEGs8?si=7dZBGBJo5kr7hvSh)
