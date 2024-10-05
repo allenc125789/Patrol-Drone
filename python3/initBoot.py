@@ -1,3 +1,5 @@
+#Initilizes configuration and settings for a fresh boot/factory reset.
+
 import cv2
 import camCaptureFaceModules as fm
 import camCapturePoseModules as pm
@@ -8,7 +10,7 @@ pTime = 0
 detectorFM = fm.faceDetector()
 detectorPM = pm.poseDetector()
 
-
+        #Determines admin's face by selecting the most prevelant face.
 def setAdminFace():
     count = 0
     WAIT = False
@@ -19,7 +21,7 @@ def setAdminFace():
         centerPOV = img[80: 400,160: 480]
         imgFace, bboxs = detectorFM.findFaces(img)
 
-        #First boot. Determines admin's face by selecting the most prevelant face.
+        #Collect admin photos.
         facePose = detectorPM.confirmFacePose(centerPOV)
         bbox = faceAutoCenter(bboxs)
         faceCorrectionVal = bbox[0][2][0]
@@ -28,7 +30,7 @@ def setAdminFace():
         totalPics = 120
 
         print(faceCorrectionVal, faceDetectionVal)
-        #If the 'admin's face is in the CenterPOV and has a value of <0.70%, it'll print.
+        #If the 'admin's face is in the CenterPOV and has a value of <0.70%, it'll capture the face directly infront.
         if (all(i > 0 for i in faceCorrectionVal) and faceDetectionVal > 0.70):
             #<= Facing Forward, 1/3 of totalPics
             if (count <= totalPics / 3 and facePose == "faceForward"):
