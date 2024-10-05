@@ -10,7 +10,7 @@ pTime = 0
 detectorFM = fm.faceDetector()
 detectorPM = pm.poseDetector()
 
-        #Determines admin's face by selecting the most prevelant face.
+#Determines admin's face by selecting the most prevelant face.
 def setAdminFace():
     count = 0
     WAIT = False
