@@ -34,6 +34,8 @@ This drone will involve an `stm32` as a flight controller, and a Linux compatibl
 ### Computer Vision
 + [freeCodeCamp.org: Advanced Computer Vision with Python - Full Course](https://youtu.be/01sAkU_NvOY?si=-z81XHAHfTIwfk2N)
 + [Rob Mulla: Open Source Face Analysis with Python](https://www.youtube.com/watch?v=n84hBgtzvxo&t=201s)
++ [sentdex: Practical Machine Learning Tutorial with Python](https://www.youtube.com/playlist?list=PLQVvvaa0QuDfKTOs3Keq_kaG2P55YRn5v)
++ [sentdex: Loading in your own data - Deep Learning basics with Python, TensorFlow and Keras](https://www.youtube.com/playlist?list=PLQVvvaa0QuDfhTox0AjmQ6tvTgMBZBEXN)
 
 ### Tensorflow/Deep-Learning
 + [Dan Fleisch: What's a Tensor?](https://www.youtube.com/watch?v=f5liqUk0ZTw)
