@@ -7,7 +7,7 @@
 # Security Drone (Prototype)
 
 ## About
-Home-page for my attempt to make a "security drone", that will accomplish basic physical security tasks. Some tasks include facial detection,
+Home-page for my attempt to make a "security drone", that will accomplish basic physical security tasks.
 
 This drone will involve an `stm32` as a flight controller, and a Linux compatible SBC as a motherboard for processing deep-learning with computer vision. Files for both of these devices along with schematics can be found within this repository.
 
