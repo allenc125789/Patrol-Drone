@@ -45,3 +45,4 @@ chown -R drone:drone "/home/drone"
 #: Python3 Settings
 sudo -H -u drone bash -c 'cd "/home/drone" && python3 -m venv ".venv"'
 sudo -H -u drone bash -c '/home/drone/.venv/bin/pip3 install mediapipe mariadb tensorflow face-recognition --use-pep517'
+sudo reboot
