@@ -1,5 +1,5 @@
 > [!NOTE]
-> **Current Status:** Under Development. Working on face detection, path detection, and preparing code to be used by the motherboard. Specifically, a booting phase to intially recognize an admin, then go into a path scanning mode.
+> **Current Status:** Under Development. Researching face recognition, path detection, and preparing code to be used by the motherboard. Specifically, a booting phase to intially recognize an admin, then go into a path scanning mode.
 >
 > Main goal is to develop an automated drone that can configure itself for scanning and patrolling various environments.
 
