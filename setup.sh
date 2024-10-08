@@ -26,7 +26,7 @@ echo drone:1234 | sudo chpasswd
 sudo usermod -aG sudo drone
 
 #: Create Files and Folders
-mkdir -v -p "/home/drone/Pictures/Faces/admin"
+mkdir -v -p "/home/drone/Pictures/Faces/catologued/admin"
 mkdir -v "/home/drone/Pictures/Faces/uncatologued"
 
 #: SQL.
