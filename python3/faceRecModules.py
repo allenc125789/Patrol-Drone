@@ -18,9 +18,18 @@ known_names = []
 for name in os.listdir(KNOWN_FACES_DIR):
     for filename in os.listdir(f"{KNOWN_FACES_DIR}/{name}"):
         image = face_recognition.load_image_file(f"{KNOWN_FACES_DIR}/{name}/{filename}")
-        encoding = face_recognition.face_encodings(image)
+        temp_encoding = face_recognition.face_encodings(image)
+
+        if len(temp_encoding) > 0 :
+            encoding = temp_encoding[0]
+        else:
+            print("no face found")
+            continue
+#        encoding = face_recognition.face_encodings(image)
+        print(encoding)
         known_faces.append(encoding)
         known_names.append(name)
+
 
 print("process uknown faces")
 for filename in os.listdir(UNKNOWN_FACES_DIR):
