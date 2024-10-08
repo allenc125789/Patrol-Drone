@@ -42,6 +42,7 @@ class poseDetector():
             centerPOV = self.findPose(img)
             lmList = self.findPosition(img)
             if len(lmList) !=0:
+                #Face
                 rightEar = lmList[8]
                 rightEyeO = lmList[6]
                 rightEye = lmList[5]
