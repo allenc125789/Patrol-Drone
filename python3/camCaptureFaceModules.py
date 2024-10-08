@@ -28,7 +28,7 @@ class faceDetector():
         return img, bboxs
 
     def saveAdminFace(self, img, bbox, count):
-        adminFolder = "/home/drone/Pictures/Faces/admin/"
+        adminFolder = "/home/drone/Pictures/Faces/catologued/admin/"
         bboxX = bbox[0][3][0]
         bboxY = bbox[0][3][1]
         bboxW = bbox[0][3][2]
