@@ -1,12 +1,14 @@
 import cv2
 import camCaptureFaceModules as fm
 import camCapturePoseModules as pm
+import faceRecModules as fr
 import time
 
 cap = cv2.VideoCapture(0)
 pTime = 0
 detectorFM = fm.faceDetector()
 detectorPM = pm.poseDetector()
+detectorFR = fr.faceRec()
 
 
 
@@ -40,6 +42,9 @@ def bboxCenterTracking(bbox):
         return "null"
 
 
+
+stuff = detectorFR.createFaceModel()
+print(stuff)
 
 #Main loop
 while True:
