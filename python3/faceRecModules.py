@@ -34,7 +34,7 @@ class faceRec():
         return known_faces, known_names
 
 
-    def analyzeNewFaces(self):
+    def analyzeNewFaces(self, known_faces, known_names):
         #Loading Unknown Faces
         for filename in os.listdir(UNKNOWN_FACES_DIR):
             try:
