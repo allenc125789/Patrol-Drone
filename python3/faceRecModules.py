@@ -61,7 +61,7 @@ class faceRec():
                     match = None
                     if True in results:
                         match = known_names[results.index(True)]
-                        print(f"{filename} = {match}")
+                        print(f"{filename}={match}")
 
             except Exception as e:
                 print(e)
