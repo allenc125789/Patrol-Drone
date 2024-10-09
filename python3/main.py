@@ -43,8 +43,9 @@ def bboxCenterTracking(bbox):
 
 
 
-stuff = detectorFR.createFaceModel()
-print(stuff)
+known_faces, known_names = detectorFR.createFaceModel()
+detectorFR.analyzeNewFaces(known_faces, known_names)
+
 
 #Main loop
 while True:
