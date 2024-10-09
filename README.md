@@ -14,7 +14,7 @@ This drone will involve an `stm32` as a flight controller, and a Linux compatibl
 *Hardware Needed:*
 + Mini USB to TTL Serial Converter
 + STM32F10C8T6
-+ Linux-Based SBC
++ Linux-Based SBC (*Motherboard*)
 + GY-521 MPU-6050 3 Axis Accelerometer/Gyroscope
 + HappyModel EX1102 13500Kv (1.5mm Shaft) Whoop/Micro Motor [x4]
 + 40mm 1.5mm Bi-Blade [x4]
