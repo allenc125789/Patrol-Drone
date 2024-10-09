@@ -49,7 +49,7 @@ class faceRec():
         known_names = pickle.load(open("knownN.pickle","rb"))
         for filename in os.listdir(UNKNOWN_FACES_DIR):
             try:
-                print(filename)
+#                print(filename)
                 imageBGR = face_recognition.load_image_file(f"{UNKNOWN_FACES_DIR}/{filename}")
 
                 image = cv2.cvtColor(imageBGR, cv2.COLOR_BGR2RGB)
@@ -61,7 +61,7 @@ class faceRec():
                     match = None
                     if True in results:
                         match = known_names[results.index(True)]
-                        print(f"Match found: {match}")
+                        print(f"{filename} = {match}")
 
             except Exception as e:
                 print(e)
