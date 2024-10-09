@@ -36,6 +36,7 @@ This drone will involve an `stm32` as a flight controller, and a Linux compatibl
 + [Rob Mulla: Open Source Face Analysis with Python](https://www.youtube.com/watch?v=n84hBgtzvxo&t=201s)
 
 ### Tensorflow/Deep-Learning
++ [sentdex: Facial Recognition with Python and the face_recognition library](https://www.youtube.com/watch?v=535acCxjHCI)
 + [Dan Fleisch: What's a Tensor?](https://www.youtube.com/watch?v=f5liqUk0ZTw)
 + [Daniel Bourke: Learn TensorFlow and Deep Learning fundamentals with Python (code-first introduction) Part 1/2](https://youtu.be/tpCFfeUEGs8?si=7dZBGBJo5kr7hvSh)
 + [sentdex: Practical Machine Learning Tutorial with Python Playlist](https://www.youtube.com/playlist?list=PLQVvvaa0QuDfKTOs3Keq_kaG2P55YRn5v)
