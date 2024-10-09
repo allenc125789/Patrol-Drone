@@ -69,8 +69,8 @@ def faceAutoCenter(bboxs):
             faceCorrectionVal = bboxCenterTracking(bboxSize) # and faceVal[0] > 0.65):
             output.append([faceID, faceDetectionVal, faceCorrectionVal, bboxSize])
         return output
-    except:
-        return "null"
+    except Exception as e:
+        print(e)
 
 #Converts location of bbox into difference between centerPOV.
 # `faceCorrectionVal` values are >= 0, if inside centerPOV.
@@ -83,8 +83,8 @@ def bboxCenterTracking(bbox):
         faceDown = bbox[3] + bbox[1] - 400
         faceCorrectionVal.append([faceLeft, faceUp, -faceRight, -faceDown])
         return faceCorrectionVal
-    except:
-        return "null"
+    except Exception as e:
+        print(e)
 
 
 
