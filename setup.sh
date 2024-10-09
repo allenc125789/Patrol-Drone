@@ -32,10 +32,10 @@ mkdir -v "/home/drone/Pictures/Faces/uncatologued"
 #: SQL.
     #: Create DB tables.
 mariadb -e "CREATE DATABASE droneDB;"
-mariadb -e "USE droneDB; CREATE TABLE paths (fullpath NVARCHAR(255) PRIMARY KEY, parent NVARCHAR(255), name NVARCHAR(255),date VARCHAR(224), size VARCHAR(255), mtime CHAR(244) );"
+mariadb -e "USE droneDB; CREATE TABLE system (fullpath NVARCHAR(255) PRIMARY KEY, parent NVARCHAR(255), name NVARCHAR(255),date VARCHAR(224), size VARCHAR(255), mtime CHAR(244) );"
     #: Create DB Users.
 mariadb -e "CREATE USER 'drone'@'localhost' IDENTIFIED BY ''"
-mariadb -e "GRANT ALL PRIVILEGES ON droneDB.paths TO 'drone'@'localhost' WITH GRANT OPTION"
+mariadb -e "GRANT ALL PRIVILEGES ON droneDB.system TO 'drone'@'localhost' WITH GRANT OPTION"
 
 
 #Copy Files
