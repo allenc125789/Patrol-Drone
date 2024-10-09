@@ -39,6 +39,7 @@ class poseDetector():
 
     def confirmFacePose(self, img):
         try:
+            centerPOV = self.findPose(img)
             lmList = self.findPosition(img)
             if len(lmList) !=0:
                 #Face
