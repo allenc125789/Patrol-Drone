@@ -1,7 +1,7 @@
 import face_recognition
 import os
 import cv2
-
+import pickle
 
 
 KNOWN_FACES_DIR ="/home/drone/Pictures/Faces/catologued"
@@ -31,11 +31,22 @@ class faceRec():
                     continue
                 known_faces.append(encoding)
                 known_names.append(name)
-        return known_faces, known_names
+
+        pickle_out = open("knownF.pickle","wb")
+        pickle.dump(known_faces, pickle_out)
+        pickle_out.close()
+
+        pickle_out = open("knownN.pickle","wb")
+        pickle.dump(known_names, pickle_out)
+        pickle_out.close()
+
+#        return known_faces, known_names
 
 
-    def analyzeNewFaces(self, known_faces, known_names):
+    def analyzeNewFaces(self):
         #Loading Unknown Faces
+        known_faces = pickle.load(open("knownF.pickle","rb"))
+        known_names = pickle.load(open("knownN.pickle","rb"))
         for filename in os.listdir(UNKNOWN_FACES_DIR):
             try:
                 print(filename)
