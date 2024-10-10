@@ -1,3 +1,6 @@
+# Modules for mediapipe's facial detection library. Function's are used to determine the position of a peron's face /
+# on a video/image.
+
 import cv2
 import mediapipe as mp
 import time
