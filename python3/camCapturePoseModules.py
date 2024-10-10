@@ -1,3 +1,6 @@
+# Modules for mediapipe's pose detection library. Function's are used to determine the position and orientation /
+# of a person's pose on a video/image.
+
 import cv2
 import mediapipe as mp
 import time
