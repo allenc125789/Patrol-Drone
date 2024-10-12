@@ -5,7 +5,7 @@ import pickle
 
 
 KNOWN_FACES_DIR ="/home/drone/Pictures/Faces/catologued"
-UNKNOWN_FACES_DIR ="/home/drone/Pictures/Faces/uncatologued"
+UNKNOWN_FACES_DIR ="/home/drone/Pictures/Faces/onscreen"
 TOLERANCE = 0.6
 
 MODEL = "hog"
