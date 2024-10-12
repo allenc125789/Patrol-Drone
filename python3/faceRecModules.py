@@ -25,7 +25,6 @@ class faceRec():
                 temp_encoding = face_recognition.face_encodings(image)
 
                 if len(temp_encoding) > 0 :
-                    print("match found")
                     encoding = temp_encoding[0]
                 else:
                     print("no face found")
