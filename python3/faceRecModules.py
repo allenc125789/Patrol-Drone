@@ -25,6 +25,7 @@ class faceRec():
                 temp_encoding = face_recognition.face_encodings(image)
 
                 if len(temp_encoding) > 0 :
+                    print("match found")
                     encoding = temp_encoding[0]
                 else:
                     print("no face found")
@@ -63,7 +64,7 @@ class faceRec():
                     if True in results:
                         match = known_names[results.index(True)]
                         output.append([filename, match])
-                return output
+            return output
 
         except Exception as e:
             print(e)
