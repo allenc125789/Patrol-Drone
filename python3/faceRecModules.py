@@ -47,8 +47,9 @@ class faceRec():
         #Loading Unknown Faces
         known_faces = pickle.load(open("knownF.pickle","rb"))
         known_names = pickle.load(open("knownN.pickle","rb"))
-        for filename in os.listdir(UNKNOWN_FACES_DIR):
-            try:
+        output = []
+        try:
+            for filename in os.listdir(UNKNOWN_FACES_DIR):
 #                print(filename)
                 imageBGR = face_recognition.load_image_file(f"{UNKNOWN_FACES_DIR}/{filename}")
 
@@ -61,7 +62,8 @@ class faceRec():
                     match = None
                     if True in results:
                         match = known_names[results.index(True)]
-                        print(f"{filename}={match}")
+                        output.append([filename, match])
+                return output
 
-            except Exception as e:
-                print(e)
+        except Exception as e:
+            print(e)
