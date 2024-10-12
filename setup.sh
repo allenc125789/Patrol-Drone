@@ -33,7 +33,8 @@ mkdir -v "/home/drone/Pictures/Faces/onscreen"
 #: SQL.
     #: Create DB tables.
 mariadb -e "CREATE DATABASE droneDB;"
-mariadb -e "USE droneDB; CREATE TABLE system (fullpath NVARCHAR(255) PRIMARY KEY, parent NVARCHAR(255), name NVARCHAR(255),date VARCHAR(224), size VARCHAR(255), mtime CHAR(244) );"
+mariadb -e "USE droneDB; CREATE TABLE system (initBoot NVARCHAR(255) );"
+mariadb -e "USE droneDB; CREATE TABLE userID (fullpath NVARCHAR(255) PRIMARY KEY, name NVARCHAR(255), priv VARCHAR(224), lastTag NVARCHAR(255) );"
     #: Create DB Users.
 mariadb -e "CREATE USER 'drone'@'localhost' IDENTIFIED BY ''"
 mariadb -e "GRANT ALL PRIVILEGES ON droneDB.system TO 'drone'@'localhost' WITH GRANT OPTION"
