@@ -30,7 +30,7 @@ def setAdminFace():
         totalPics = 120
 
         print(faceCorrectionVal, faceDetectionVal)
-        #If the 'admin's face is in the CenterPOV and has a value of <0.70%, it'll capture the face directly infront.
+        #If the 'admin's face is in the CenterPOV and has a value of <0.70%, it'll capture photos.
         if (all(i > 0 for i in faceCorrectionVal) and faceDetectionVal > 0.70):
             #<= Facing Forward, 1/3 of totalPics
             if (count <= totalPics / 3 and facePose == "faceForward"):
