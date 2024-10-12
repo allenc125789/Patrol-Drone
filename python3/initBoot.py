@@ -26,7 +26,7 @@ def setAdminFace():
         bbox = faceAutoCenter(bboxs)
         faceCorrectionVal = bbox[0][2][0]
         faceDetectionVal = bbox[0][1][0]
-        #Keep a multiple of 3 to split evenly between face poses.
+        #Keep a multiple of 3 to split evenly between face poses of looking forward, left, and right.
         totalPics = 120
 
         print(faceCorrectionVal, faceDetectionVal)
