@@ -1,9 +1,10 @@
+# Process faces passed from the camera and compares them to faces already logged by other functions.
+
 import face_recognition
 import os
 import cv2
 import pickle
 
-# Process faces passed from the camera and compares them to faces already logged by other functions.
 KNOWN_FACES_DIR ="/home/drone/Pictures/Faces/catologued"
 UNKNOWN_FACES_DIR ="/home/drone/Pictures/Faces/onscreen"
 TOLERANCE = 0.6
