@@ -17,7 +17,7 @@ known_names = []
 
 class faceRec():
 
-
+    #Function to create a model of the currently documented faces.
     def createFaceModel(self):
         #Loading Known Faces
         for name in os.listdir(KNOWN_FACES_DIR):
@@ -41,9 +41,8 @@ class faceRec():
         pickle.dump(known_names, pickle_out)
         pickle_out.close()
 
-#        return known_faces, known_names
 
-
+    #Function to compare logged faces to on-screen faces.
     def analyzeNewFaces(self):
         #Loading Unknown Faces
         known_faces = pickle.load(open("knownF.pickle","rb"))
