@@ -41,6 +41,7 @@ mariadb -e "GRANT ALL PRIVILEGES ON droneDB.system TO 'drone'@'localhost' WITH G
 
 #Set VNC files
 sudo -H -u drone bash -c 'vncserver :1'
+sudo -H -u drone bash -c 'vncserver -kill :1'
 
 #Copy Files
 cp -r -p -f -a "./SecurityDrone-Prototype/." "/home/drone/"
