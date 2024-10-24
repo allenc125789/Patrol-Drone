@@ -42,6 +42,7 @@ mariadb -e "GRANT ALL PRIVILEGES ON droneDB.system TO 'drone'@'localhost' WITH G
 
 #Copy Files
 cp -r -p -f -a "./SecurityDrone-Prototype/." "/home/drone/"
+cp -f "./xstartup" "/home/drone/.vnc/xstartup"
 chown -R drone:drone "/home/drone"
 
 
