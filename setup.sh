@@ -28,7 +28,6 @@ sudo usermod -aG sudo drone
 #: Create Files and Folders
 mkdir -v -p "/home/drone/Pictures/Faces/catologued/admin"
 mkdir -v "/home/drone/Pictures/Faces/onscreen"
-mkdir -v "/home/drone/.vnc"
 
 
 #: SQL.
@@ -40,10 +39,12 @@ mariadb -e "USE droneDB; CREATE TABLE userID (fullpath NVARCHAR(255) PRIMARY KEY
 mariadb -e "CREATE USER 'drone'@'localhost' IDENTIFIED BY ''"
 mariadb -e "GRANT ALL PRIVILEGES ON droneDB.system TO 'drone'@'localhost' WITH GRANT OPTION"
 
-#Copy Files
+#Python Files
 cp -r -p -f -a "$vPWD/python3" "/home/drone/"
-cp -f "$vPWD/xstartup" "/home/drone/.vnc/xstartup"
 chown -R drone:drone "/home/drone"
+
+#VNC Files
+cp -p -f "$vPWD/xstartup" "/home/drone/.vnc/xstartup"
 
 
 #: Python3 Settings
