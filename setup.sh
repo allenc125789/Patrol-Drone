@@ -28,6 +28,7 @@ sudo usermod -aG sudo drone
 #: Create Files and Folders
 mkdir -v -p "/home/drone/Pictures/Faces/catologued/admin"
 mkdir -v "/home/drone/Pictures/Faces/onscreen"
+mkdir -v "/home/drone/.vnc"
 
 
 #: SQL.
