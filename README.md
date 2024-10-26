@@ -1,8 +1,8 @@
 # Security Drone (Prototype) | Motherboard
 
-Model: OrangePi 3b
-Storage: SD card(+100gb)
-OS: Armbian(Debian)
+> Model: OrangePi 3b
+> Storage: SD card(+100gb)
+> OS: Armbian(Debian)
 
 ## Setup:
 + Download Armbian from the [armbian website](https://www.armbian.com/orangepi3b/).
