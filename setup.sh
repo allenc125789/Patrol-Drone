@@ -40,8 +40,8 @@ mariadb -e "CREATE USER 'drone'@'localhost' IDENTIFIED BY ''"
 mariadb -e "GRANT ALL PRIVILEGES ON droneDB.system TO 'drone'@'localhost' WITH GRANT OPTION"
 
 #Copy Files
-cp -r -p -f -a "./SecurityDrone-Prototype/." "/home/drone/"
-cp -f "./xstartup" "/home/drone/.vnc/xstartup"
+cp -r -p -f -a "$vPWD/python3" "/home/drone/"
+cp -f "$vPWD/xstartup" "/home/drone/.vnc/xstartup"
 chown -R drone:drone "/home/drone"
 
 
