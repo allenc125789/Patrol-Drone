@@ -45,7 +45,7 @@ chown -R drone:drone "/home/drone"
 
 #VNC Files
 cp -p -f "$vPWD/xstartup" "/home/drone/.vnc/xstartup"
-
+mkdir -v "/home/drone/.vnc"
 
 #: Python3 Settings
 sudo -H -u drone bash -c 'cd "/home/drone" && python3 -m venv ".venv"'
