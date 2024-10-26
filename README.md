@@ -20,7 +20,7 @@ This drone will involve an `stm32` as a flight controller, and a Linux compatibl
 + 40mm 1.5mm Bi-Blade [x4]
 
 ## Instructions
-Motherboard setup: https://github.com/allenc125789/SecurityDrone-Prototype/tree/motherboard
+1: Complete the instructions for the [Motherboard setup](https://github.com/allenc125789/SecurityDrone-Prototype/tree/motherboard)
 
 ## Resources
 ### Drone Construction
