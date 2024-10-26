@@ -9,7 +9,7 @@
 ## Setup:
 + Download Armbian(Minimal/IOT) from the [armbian website](https://www.armbian.com/orangepi3b/).
 + Install the armbian img file onto the SD card with imaging software. (I used the [Official RPI Imaging software](https://www.raspberrypi.com/software/)).
-+ Boot the SBC, connect to ssh with the `root` user. Setup password is `1234`.
++ Boot the SBC, connect with ssh. User: `root`, Pass: `1234`.
 + Complete the requested setup when connected.
 
 
