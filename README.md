@@ -13,4 +13,5 @@
 + Complete the requested setup when connected.
 
 ## 2: Software Installation:
-**Run as Root:** `git clone https://allenc125789:@github.com/allenc125789/SecurityDrone-Prototype.git -b motherboard && bash ./SecurityDrone-Prototype/setup.sh`
++ Install packages: `apt install git`
++ **Run as Root:** `git clone https://allenc125789:@github.com/allenc125789/SecurityDrone-Prototype.git -b motherboard && bash ./SecurityDrone-Prototype/setup.sh`
