@@ -19,12 +19,8 @@ This drone will involve an `stm32` as a flight controller, and a Linux compatibl
 + HappyModel EX1102 13500Kv (1.5mm Shaft) Whoop/Micro Motor [x4]
 + 40mm 1.5mm Bi-Blade [x4]
 
-**Motherboard (Linux-ARM SBC) Files:** https://github.com/allenc125789/SecurityDrone-Prototype/tree/motherboard
-
 ## Instructions
-**Motherboard:**
-+ Install Debian
-+ After install, run this command as root: `git clone https://allenc125789:@github.com/allenc125789/SecurityDrone-Prototype.git -b motherboard && bash ./SecurityDrone-Prototype/setup.sh`
+Motherboard setup: https://github.com/allenc125789/SecurityDrone-Prototype/tree/motherboard
 
 ## Resources
 ### Drone Construction
