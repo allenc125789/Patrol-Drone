@@ -10,7 +10,7 @@ vFILESYSTEM=$(df -P . | sed -n '$s/[[:blank:]].*//p')
 vUUID=$(/usr/sbin/blkid -s UUID -o value "$vFILESYSTEM")
 
 #: Dependancies.
-aDEPENDS=("sudo" "network-manager" "cmake" "libmariadb3" "mariadb-server" "build-essential" "libssl-dev" "libffi-dev" "python3-dev" "libmariadb-dev" "python3.11-venv" "python3-opencv" "python3-matplotlib" "python3-numpy" "xfce4" "xfonts-base" "tightvncserver")
+aDEPENDS=("sudo" "cmake" "libmariadb3" "mariadb-server" "build-essential" "libssl-dev" "libffi-dev" "python3-dev" "libmariadb-dev" "python3.11-venv" "python3-opencv" "python3-matplotlib" "python3-numpy" "xfce4" "xfonts-base" "tightvncserver")
     #: Dependancy Check
 apt-get install ${aDEPENDS[*]}
 if [[ $? > 0 ]]; then
