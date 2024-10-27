@@ -12,7 +12,13 @@
 + Boot the SBC, connect with SSH. User: `root`, Pass: `1234`.
 + Complete the requested setup when connected.
 
-## 2: Software Installation:
+## 2: WiFi Setup:
++ **Run the following as Root**
++ Install packages:
+  +  `apt install network-manager`
++ Connect to wifi, replacing the SSID and PSK with your wifi's: `nmcli device wifi connect "SSID" password "PSK"`
+
+## 3: Software Installation:
 + **Run the following as Root**
 + Install packages:
   +  `apt install git`
