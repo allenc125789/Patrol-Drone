@@ -23,10 +23,8 @@ fi
 #: User settings
 sudo useradd -m drone
 echo drone:1234 | sudo chpasswd
-sudo groupadd 
 sudo usermod -aG sudo drone
 sudo usermod -aG video drone
-sudo usermod -aG gpio drone
 
 
 #: Create Files and Folders
@@ -53,9 +51,21 @@ mkdir -v "/home/drone/.vnc"
 
 #: Python3 Settings
 sudo -H -u drone bash -c 'cd "/home/drone" && python3 -m venv ".venv"'
-sudo -H -u drone bash -c '/home/drone/.venv/bin/pip3 install OPi.GPIO mediapipe mariadb tensorflow face-recognition --use-pep517'
+sudo -H -u drone bash -c '/home/drone/.venv/bin/pip3 install mediapipe mariadb tensorflow face-recognition --use-pep517'
+
+#: ---OrangePi Settings---
+
+#: User settings
+sudo groupadd gpio
+sudo usermod -aG gpio drone
+
+#: GPIO Settings
+sudo -H -u drone bash -c '/home/drone/.venv/bin/pip3 install OPi.GPIO --use-pep517'
+echo "SUBSYSTEM==\”gpio\”, KERNEL==\”gpiochip*\”, ACTION==\”add\”, PROGRAM=\”/bin/sh -c ‘chown root:gpio /sys/class/gpio/export /sys/class/gpio/unexport ; chmod 220 /sys/class/gpio/export /sys/class/gpio/unexport’\” SUBSYSTEM==\”gpio\”, KERNEL==\”gpio*\”, ACTION==\”add\”, PROGRAM=\”/bin/sh -c ‘chown root:gpio /sys%p/active_low /sys%p/direction /sys%p/edge /sys%p/value ; chmod 660 /sys%p/active_low /sys%p/direction /sys%p/edge /sys%p/value’\”" > /etc/udev/rules.d/99-gpio.rules
 
 #: Disable suspend
 sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+#: ---Done---
 
 sudo reboot
