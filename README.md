@@ -18,7 +18,8 @@
 + **Run the following as Root**
 + Install packages:
   +  `apt install network-manager`
-+ Connect to wifi, replacing the SSID and PSK with your wifi's: `nmcli device wifi connect "SSID" password "PSK"`
++ Connect to wifi, replacing the SSID and PSK with your wifi's:
+  + `nmcli device wifi connect "SSID" password "PSK"`
 
 ## 3: Software Installation:
 + **Run the following as Root**
