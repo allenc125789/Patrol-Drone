@@ -20,7 +20,7 @@ This drone will involve an `stm32` as a flight controller, and a Linux compatibl
 + 40mm 1.5mm Bi-Blade [x4]
 
 ## Instructions
-1: See the compataible SBC's, and select the one you'll be setting up.
+1) See the compataible SBC's, and select the one you'll be setting up.
 + [Motherboard Selection](https://github.com/allenc125789/SecurityDrone-Prototype/blob/main/docs/motherboard-list.md)
 
 ## Resources
