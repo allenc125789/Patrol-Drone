@@ -1,4 +1,4 @@
-# Security Drone (Prototype) | Motherboard
+# Security Drone (Prototype) | Motherboard - OrangePi 3b
 
 > Model: OrangePi 3b
 >
