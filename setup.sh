@@ -53,18 +53,14 @@ mkdir -v "/home/drone/.vnc"
 sudo -H -u drone bash -c 'cd "/home/drone" && python3 -m venv ".venv"'
 sudo -H -u drone bash -c '/home/drone/.venv/bin/pip3 install mediapipe mariadb tensorflow face-recognition --use-pep517'
 
-#: ---OrangePi Settings---
+#: ---RaspberryPi Settings---
 
 #: User settings
 sudo groupadd gpio
 sudo usermod -aG gpio drone
 
-#: GPIO Settings
-sudo -H -u drone bash -c '/home/drone/.venv/bin/pip3 install OPi.GPIO --use-pep517'
-echo "SUBSYSTEM==\”gpio\”, KERNEL==\”gpiochip*\”, ACTION==\”add\”, PROGRAM=\”/bin/sh -c ‘chown root:gpio /sys/class/gpio/export /sys/class/gpio/unexport ; chmod 220 /sys/class/gpio/export /sys/class/gpio/unexport’\” SUBSYSTEM==\”gpio\”, KERNEL==\”gpio*\”, ACTION==\”add\”, PROGRAM=\”/bin/sh -c ‘chown root:gpio /sys%p/active_low /sys%p/direction /sys%p/edge /sys%p/value ; chmod 660 /sys%p/active_low /sys%p/direction /sys%p/edge /sys%p/value’\”" > /etc/udev/rules.d/99-gpio.rules
-
 #: Disable suspend
-sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+#sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 
 #: ---Done---
 
