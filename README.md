@@ -5,16 +5,9 @@
 > OS: RaspberryPi OS
 
 ## 1: OS Installation:
-+ Write the RaspberryPi OS from the [Official RPI Imaging software](https://www.raspberrypi.com/software/)).
++ Write the RaspberryPi OS to the SD card, using the [Official RPI Imaging software](https://www.raspberrypi.com/software/).
 
-## 2: WiFi Setup:
-+ **Run the following as Root**
-+ Install packages:
-  +  `apt install network-manager`
-+ Connect to wifi, replacing the SSID and PSK with your wifi's:
-  + `nmcli device wifi connect "SSID" password "PSK"`
-
-## 3: Software Installation:
+## 2: Software Installation:
 + **Run the following as Root**
 + Install packages:
   +  `apt install git`
