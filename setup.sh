@@ -55,6 +55,7 @@ sudo -H -u drone bash -c '/home/drone/.venv/bin/pip3 install mediapipe mariadb t
 sudo usermod -aG gpio drone
 sudo usermod -aG video drone
 sudo usermod -aG input drone
+sudo usermod -aG render drone
 sudo usermod -aG sudo drone
 
 
