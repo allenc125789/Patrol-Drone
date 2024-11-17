@@ -20,12 +20,6 @@ else
     :
 fi
 
-#: User settings
-sudo useradd -m drone
-echo drone:1234 | sudo chpasswd
-sudo usermod -aG sudo drone
-sudo usermod -aG video drone
-
 
 #: Create Files and Folders
 mkdir -v -p "/home/drone/Pictures/Faces/catologued/admin"
@@ -50,18 +44,6 @@ sudo -H -u drone bash -c 'cd "/home/drone" && python3 -m venv ".venv"'
 sudo -H -u drone bash -c '/home/drone/.venv/bin/pip3 install mediapipe mariadb tensorflow face-recognition --use-pep517'
 
 #: ---RaspberryPi Settings---
-
-#: User settings
-sudo usermod -aG gpio drone
-sudo usermod -aG video drone
-sudo usermod -aG input drone
-sudo usermod -aG render drone
-sudo usermod -aG sudo drone
-
-
-
-#: Disable suspend
-#sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 
 #: ---Done---
 
