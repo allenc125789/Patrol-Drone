@@ -45,7 +45,7 @@ sudo -H -u drone bash -c '/home/drone/.venv/bin/pip3 install mediapipe mariadb t
 
 #: ---RaspberryPi Settings---
 
-sudo -H -u drone bash -c '/home/drone/.venv/bin/pip3 install RPi.GPIO lgpio --use-pep517'
+sudo -H -u drone bash -c '/home/drone/.venv/bin/pip3 install RPi.GPIO lgpio gpiozero --use-pep517'
 
 #: ---Done---
 
