@@ -45,10 +45,6 @@ mariadb -e "GRANT ALL PRIVILEGES ON droneDB.system TO 'drone'@'localhost' WITH G
 cp -r -p -f -a "$vPWD/python3" "/home/drone/"
 chown -R drone:drone "/home/drone"
 
-#VNC Files
-cp -p -f "$vPWD/xstartup" "/home/drone/.vnc/xstartup"
-mkdir -v "/home/drone/.vnc"
-
 #: Python3 Settings
 sudo -H -u drone bash -c 'cd "/home/drone" && python3 -m venv ".venv"'
 sudo -H -u drone bash -c '/home/drone/.venv/bin/pip3 install mediapipe mariadb tensorflow face-recognition --use-pep517'
