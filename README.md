@@ -10,6 +10,6 @@
 ## 2: Software Installation:
 + **Run the following as Root**
 + Install packages:
-  +  `apt install git`
+  +  `sudo apt install git`
 + Install program:
-  + `git clone https://allenc125789:@github.com/allenc125789/SecurityDrone-Prototype.git -b motherboard-OrangePi3b && bash ./SecurityDrone-Prototype/setup.sh`
+  + `sudo git clone https://allenc125789:@github.com/allenc125789/SecurityDrone-Prototype.git -b motherboard-OrangePi3b && sudo bash ./SecurityDrone-Prototype/setup.sh`
