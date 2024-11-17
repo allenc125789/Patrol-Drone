@@ -8,6 +8,8 @@ import time
 
 from gpiozero import LED
 
+led = LED(17)
+
 cap = cv2.VideoCapture(0)
 pTime = 0
 detectorFM = fm.faceDetector()
@@ -24,6 +26,8 @@ def setAdminFace():
         centerPOV = img[80: 400,160: 480]
         imgFace, bboxs = detectorFM.findFaces(img)
 
+        led.off()
+
         #Collect admin photos.
         facePose = detectorPM.confirmFacePose(centerPOV)
         bbox = faceAutoCenter(bboxs)
@@ -38,18 +42,21 @@ def setAdminFace():
             #<= Facing Forward, 1/3 of totalPics
             if (count <= totalPics / 3 and facePose == "faceForward"):
                 print("Look Forward")
+                led.on()
                 print(facePose)
                 detectorFM.saveAdminFace(img, bbox, count)
                 count += 1
             #<= Facing Left, 2/3 of totalPics
             elif (count >= totalPics / 3 and count < (totalPics / 3) * 2 and facePose == "faceLeft"):
                 print("Look Left")
+                led.on()
                 print(facePose)
                 detectorFM.saveAdminFace(img, bbox, count)
                 count += 1
             #<= Facing Right, 3/3 of totalPics
             elif (count >= (totalPics / 3) * 2 and facePose == "faceRight"):
                 print("Look Right")
+                led.on()
                 print(facePose)
                 detectorFM.saveAdminFace(img, bbox, count)
                 count += 1
