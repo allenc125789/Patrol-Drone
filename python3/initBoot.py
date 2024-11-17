@@ -6,6 +6,8 @@ import camCapturePoseModules as pm
 from gpiozero.pins.lgpio import LGPIOFactory
 import time
 
+from gpiozero import LED
+
 cap = cv2.VideoCapture(0)
 pTime = 0
 detectorFM = fm.faceDetector()
