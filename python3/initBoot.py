@@ -3,6 +3,7 @@
 import cv2
 import camCaptureFaceModules as fm
 import camCapturePoseModules as pm
+from gpiozero.pins.lgpio import LGPIOFactory
 import time
 
 cap = cv2.VideoCapture(0)
