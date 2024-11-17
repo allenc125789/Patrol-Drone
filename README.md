@@ -12,4 +12,4 @@
 + Install packages:
   +  `sudo apt install git`
 + Install program:
-  + `sudo git clone https://allenc125789:@github.com/allenc125789/SecurityDrone-Prototype.git -b motherboard-OrangePi3b && sudo bash ./SecurityDrone-Prototype/setup.sh`
+  + `sudo git clone https://allenc125789:@github.com/allenc125789/SecurityDrone-Prototype.git -b motherboard-RaspberryPi5 && sudo bash ./SecurityDrone-Prototype/setup.sh`
