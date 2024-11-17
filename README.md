@@ -7,7 +7,10 @@
 ## Install: Source
 
 ### 1: OS Imaging:
-+ Write the RaspberryPi OS to the SD card, using the [Official RPI Imaging software](https://www.raspberrypi.com/software/).
++ Download the [Official RPI Imaging software](https://www.raspberrypi.com/software/).
++ Set
++ Write the RaspberryPi5, 64-bit image to your SD card.
+  
 
 ### 2: Software Installation:
 + **Run the following as Root**
