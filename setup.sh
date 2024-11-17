@@ -52,8 +52,8 @@ sudo -H -u drone bash -c '/home/drone/.venv/bin/pip3 install mediapipe mariadb t
 #: ---RaspberryPi Settings---
 
 #: User settings
-sudo groupadd gpio
 sudo usermod -aG gpio drone
+sudo usermod -aG video drone
 
 #: Disable suspend
 #sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
