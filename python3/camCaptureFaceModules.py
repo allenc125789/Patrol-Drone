@@ -7,7 +7,7 @@ import time
 
 
 class faceDetector():
-    def __init__(self, minDetectionCon= 0.8):
+    def __init__(self, minDetectionCon= 0.7):
 
         self.minDetectionCon = minDetectionCon
         self.mpFaceDetection = mp.solutions.face_detection
