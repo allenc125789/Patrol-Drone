@@ -8,7 +8,7 @@
 + Write the RaspberryPi OS to the SD card, using the [Official RPI Imaging software](https://www.raspberrypi.com/software/).
 
 ## 2: Software Installation:
-### A: Source
+### a: Source
 + **Run the following as Root**
 + Install packages:
   +  `sudo apt install git`
