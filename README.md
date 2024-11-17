@@ -9,7 +9,7 @@
 ### 1: OS Imaging:
 + Download the [Official RPI Imaging software](https://www.raspberrypi.com/software/).
 + Select the 64-bit RaspberryPi image to your SD card, and click next.
-+ In the OS-Custimization pop-up, edit settings, and set the username: `drone` with an easy to remember password.
++ In the OS-Custimization pop-up, edit settings, and set the username: `drone`, with an easy to remember password.
 + (Optional) Set your wifi.
 + Write to SD.
   
