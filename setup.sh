@@ -20,7 +20,7 @@ else
     :
 fi
 
-
+#: ---Program Settings---
 #: Create Files and Folders
 mkdir -v -p "/home/drone/Pictures/Faces/catologued/admin"
 mkdir -v "/home/drone/Pictures/Faces/onscreen"
